@@ -20,11 +20,12 @@ jobs:
           python-version: "3.12"
 
       - name: Installera beroenden
-        run: pip install requests
+        run: pip install requests anthropic
 
       - name: Generera matchsidor
         env:
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python generate.py
 
       - name: Commita och pusha genererade sidor
